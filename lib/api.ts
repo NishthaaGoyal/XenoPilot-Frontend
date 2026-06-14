@@ -1,7 +1,7 @@
 // API client – all calls to the FastAPI backend
 // NEXT_PUBLIC_API_URL must be set in Vercel environment variables
 // pointing to the deployed Render backend URL (e.g. https://xenopilot-backend-xxxx.onrender.com)
-const BASE = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000').replace(/\/$/, '')
+const BASE = (process.env.NEXT_PUBLIC_API_URL || 'https://clever-optimism-production-668e.up.railway.app').replace(/\/$/, '')
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
   const res = await fetch(`${BASE}${path}`, {
