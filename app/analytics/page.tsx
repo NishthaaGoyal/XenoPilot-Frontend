@@ -151,11 +151,11 @@ function AnalyticsPageInner() {
   const pieData = analytics ? buildPieData(analytics) : []
 
   return (
-    <div className="p-6 space-y-6 animate-fade-in">
+    <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 animate-fade-in">
       {/* Header */}
-      <div className="flex items-start justify-between">
-        <div>
-          <h1 className="text-2xl font-bold text-white">Analytics & Recommendations</h1>
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0">
+          <h1 className="text-xl sm:text-2xl font-bold text-white">Analytics &amp; Recommendations</h1>
           <p className="text-text-secondary text-sm mt-1">What happened, and what to do next.</p>
         </div>
       </div>
@@ -210,7 +210,7 @@ function AnalyticsPageInner() {
       {analytics && (
         <>
           {/* KPI row */}
-          <div className="grid grid-cols-2 xl:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
             <KpiCard label="Sent" value={formatNumber(analytics.total_sent)} color="text-white" />
             <KpiCard label="Delivered" value={formatNumber(analytics.delivered)} sub={`${formatPercent(analytics.delivery_rate)} rate`} color="text-primary" />
             <KpiCard label="Opened" value={formatNumber(analytics.opened)} sub={`${formatPercent(analytics.open_rate)} open rate`} color="text-primary-hover" />
@@ -219,7 +219,7 @@ function AnalyticsPageInner() {
           </div>
 
           {/* Charts */}
-          <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 xl:grid-cols-3 gap-3 sm:gap-4">
             {/* Funnel */}
             <div className="card xl:col-span-2">
               <div className="mb-5">
@@ -310,9 +310,9 @@ function AnalyticsPageInner() {
 
           {/* AI Recommendations */}
           <div className="space-y-4">
-            <div className="flex items-center justify-between">
+            <div className="flex items-start sm:items-center justify-between gap-3 flex-col sm:flex-row">
               <div>
-                <h2 className="text-lg font-semibold text-white">AI Next Best Action</h2>
+                <h2 className="text-base sm:text-lg font-semibold text-white">AI Next Best Action</h2>
                 <p className="text-xs text-muted mt-0.5">AI-generated recommendations based on campaign results</p>
               </div>
               {!insights && (

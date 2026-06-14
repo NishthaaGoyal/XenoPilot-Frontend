@@ -17,10 +17,10 @@ const STEPS = ['Audience', 'Generate', 'Predict', 'Launch']
 
 function StepBar({ current }: { current: number }) {
   return (
-    <div className="flex items-center gap-0 mb-8">
+    <div className="flex items-center flex-wrap gap-1 mb-6 sm:mb-8">
       {STEPS.map((s, i) => (
         <div key={s} className="flex items-center">
-          <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+          <div className={`flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
             i === current ? 'bg-primary/15 text-primary border border-primary/25' :
             i < current ? 'text-success' : 'text-muted'
           }`}>
@@ -30,7 +30,7 @@ function StepBar({ current }: { current: number }) {
             {s}
           </div>
           {i < STEPS.length - 1 && (
-            <ChevronRight className={`w-3.5 h-3.5 mx-1 ${i < current ? 'text-success' : 'text-muted/30'}`} />
+            <ChevronRight className={`w-3.5 h-3.5 mx-0.5 sm:mx-1 ${i < current ? 'text-success' : 'text-muted/30'}`} />
           )}
         </div>
       ))}
@@ -263,10 +263,10 @@ function CampaignsPageInner() {
   }
 
   return (
-    <div className="p-6 animate-fade-in">
+    <div className="p-4 sm:p-6 animate-fade-in">
       <div className="max-w-3xl mx-auto">
-        <div className="mb-6">
-          <h1 className="text-2xl font-bold text-white">Campaign Studio</h1>
+        <div className="mb-5 sm:mb-6">
+          <h1 className="text-xl sm:text-2xl font-bold text-white">Campaign Studio</h1>
           <p className="text-text-secondary text-sm mt-1">AI-assisted campaign creation, from copy to channel.</p>
         </div>
 
@@ -287,7 +287,7 @@ function CampaignsPageInner() {
                 <p className="text-xs text-muted uppercase tracking-wider font-medium mb-1">Target Audience</p>
                 <p className="text-sm text-slate-200 leading-relaxed">{audienceData.explanation}</p>
               </div>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="bg-white/[0.03] rounded-lg p-3 border border-white/[0.05] text-center">
                   <p className="text-xl font-bold text-white">{formatNumber(audienceData.metrics.audience_size)}</p>
                   <p className="text-xs text-muted mt-0.5">Customers</p>
@@ -370,7 +370,7 @@ function CampaignsPageInner() {
                 </span>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+              <div className="grid grid-cols-2 gap-3 mb-4">
                 <PredMetric label="Predicted Open Rate" value={formatPercent(prediction.predicted_open_rate)} color="text-primary" />
                 <PredMetric label="Predicted Click Rate" value={formatPercent(prediction.predicted_ctr)} color="text-success" />
                 <PredMetric label="Conversion Rate" value={formatPercent(prediction.predicted_conversion_rate)} color="text-warning" />
@@ -395,7 +395,7 @@ function CampaignsPageInner() {
             {/* Campaign summary */}
             <div className="card space-y-3">
               <p className="text-xs text-muted uppercase tracking-wider font-medium">Ready to Launch</p>
-              <div className="grid grid-cols-2 gap-2 text-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
                 <div><span className="text-muted">Campaign:</span> <span className="text-slate-200 font-medium">{content.name}</span></div>
                 <div><span className="text-muted">Channel:</span> <span className="text-slate-200 font-medium">{getChannelLabel(content.channel)}</span></div>
                 <div><span className="text-muted">Audience:</span> <span className="text-slate-200 font-medium">{formatNumber(audienceData?.metrics.audience_size || 0)} customers</span></div>

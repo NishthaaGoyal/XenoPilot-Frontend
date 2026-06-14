@@ -54,7 +54,7 @@ function AudienceInsightCard({ audience }: { audience: AudienceResponse }) {
             <p className="text-sm text-text-secondary leading-relaxed">{audience.why_selected}</p>
 
             {/* Metrics */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4">
+            <div className="grid grid-cols-2 gap-3 mt-4">
               {[
                 { label: 'Audience Size', value: formatNumber(metrics.audience_size), icon: Users, color: 'text-primary' },
                 { label: 'Avg. Spend', value: formatCurrency(metrics.avg_spend), icon: DollarSign, color: 'text-success' },
@@ -178,17 +178,17 @@ function AudiencePageInner() {
   }
 
   return (
-    <div className="p-6 animate-fade-in">
+    <div className="p-4 sm:p-6 animate-fade-in">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="mb-6">
-          <h1 className="text-2xl font-bold text-white">Audience Builder</h1>
+        <div className="mb-5 sm:mb-6">
+          <h1 className="text-xl sm:text-2xl font-bold text-white">Audience Builder</h1>
           <p className="text-text-secondary text-sm mt-1">
             Describe your target audience in plain English. AI will find them for you.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 xl:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 xl:grid-cols-5 gap-4 sm:gap-6">
           {/* Left – Search panel */}
           <div className="xl:col-span-2 space-y-4">
             <div className="card space-y-3">

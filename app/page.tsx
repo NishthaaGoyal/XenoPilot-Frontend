@@ -98,17 +98,18 @@ export default function DashboardPage() {
   }, [])
 
   return (
-    <div className="p-6 space-y-6 animate-fade-in">
+    <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 animate-fade-in">
       {/* Header */}
-      <div className="flex items-start justify-between">
-        <div>
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0">
           <p className="text-text-secondary text-sm">{greeting} 👋</p>
-          <h1 className="text-2xl font-bold text-white mt-0.5">Customer Intelligence</h1>
-          <p className="text-text-secondary text-sm mt-1">Here's what's happening with your customers today.</p>
+          <h1 className="text-xl sm:text-2xl font-bold text-white mt-0.5">Customer Intelligence</h1>
+          <p className="text-text-secondary text-sm mt-1 hidden sm:block">Here's what's happening with your customers today.</p>
         </div>
-        <Link href="/audience" className="btn-primary">
+        <Link href="/audience" className="btn-primary flex-shrink-0">
           <Sparkles className="w-4 h-4" />
-          Build Audience
+          <span className="hidden sm:inline">Build Audience</span>
+          <span className="sm:hidden">Audience</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </Link>
       </div>
@@ -121,7 +122,7 @@ export default function DashboardPage() {
       )}
 
       {/* KPI Cards */}
-      <div className="grid grid-cols-2 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         {loading ? (
           Array.from({ length: 4 }).map((_, i) => <SkeletonCard key={i} />)
         ) : stats ? (
@@ -186,7 +187,7 @@ export default function DashboardPage() {
       )}
 
       {/* Charts row */}
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-3 sm:gap-4">
         {/* Revenue Trend */}
         <div className="card xl:col-span-2">
           <div className="flex items-center justify-between mb-5">
@@ -258,7 +259,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Quick Action */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
         {[
           { label: 'Target at-risk customers', query: 'at-risk customers who haven\'t purchased recently', href: '/audience', color: 'border-warning/20 hover:border-warning/40', icon: '⚠️' },
           { label: 'Win back churning customers', query: 'churning customers', href: '/audience', color: 'border-danger/20 hover:border-danger/40', icon: '🔄' },
